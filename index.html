@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Run | دانلود بازی‌های رایگان</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3612/3612569.png">
+</head>
+<body>
+    <!-- نوار بالایی -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-gamepad"></i>
+                    <h1>🎮 Game Run</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home"><i class="fas fa-home"></i> خانه</a></li>
+                    <li><a href="#games"><i class="fas fa-gamepad"></i> بازی‌ها</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> درباره ما</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> تماس</a></li>
+                </ul>
+                <div class="header-actions">
+                    <a href="admin.html" class="admin-login-btn">
+                        <i class="fas fa-user-shield"></i> ورود به مدیریت
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- بخش اصلی -->
+    <main>
+        <!-- معرفی -->
+        <section id="home" class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h2>به <span class="highlight">Game Run</span> خوش آمدید!</h2>
+                        <p>محلی برای دانلود بهترین بازی‌ها به صورت کاملاً رایگان و با کیفیت بالا</p>
+                        <a href="#games" class="btn-primary">
+                            <i class="fas fa-gamepad"></i> مشاهده بازی‌ها
+                        </a>
+                    </div>
+                    <div class="hero-image">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="بازی Game Run">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- بازی‌ها -->
+        <section id="games" class="games-section">
+            <div class="container">
+                <h2 class="section-title">🎮 بازی‌های موجود</h2>
+                <p class="section-subtitle">برای مشاهده جزییات و دانلود، روی ادامه توضیحات کلیک کنید</p>
+                
+                <div class="games-grid" id="gamesGrid">
+                    <!-- بازی‌ها با JavaScript نمایش داده می‌شوند -->
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i> در حال بارگذاری بازی‌ها...
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- درباره ما -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title">🎯 درباره Game Run</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>چرا Game Run؟</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> بازی‌های کاملاً تست شده</li>
+                            <li><i class="fas fa-check-circle"></i> بدون ویروس و بدافزار</li>
+                            <li><i class="fas fa-check-circle"></i> پشتیبانی ۲۴ ساعته</li>
+                            <li><i class="fas fa-check-circle"></i> آپدیت‌های منظم</li>
+                        </ul>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h3 id="totalGames">0</h3>
+                            <p>بازی فعال</p>
+                        </div>
+                        <div class="stat">
+                            <h3 id="totalDownloads">0</h3>
+                            <p>دانلود کل</p>
+                        </div>
+                        <div class="stat">
+                            <h3 id="visitors">0</h3>
+                            <p>بازدیدکننده</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- تماس -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">📞 ارتباط با ما</h2>
+                <div class="contact-content">
+                    <p>برای گزارش مشکل در بازی‌ها یا پیشنهادات:</p>
+                    <div class="contact-info">
+                        <a href="mailto:report@gamerun.ir" class="contact-link">
+                            <i class="fas fa-envelope"></i> report@gamerun.ir
+                        </a>
+                        <a href="https://t.me/gamerun_support" class="contact-link">
+                            <i class="fab fa-telegram"></i> @gamerun_support
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- فوتر -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-gamepad"></i>
+                    <h3>Game Run</h3>
+                    <p>بازی‌های رایگان، کیفیت بالا</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">خانه</a>
+                    <a href="#games">بازی‌ها</a>
+                    <a href="#about">درباره</a>
+                    <a href="#contact">تماس</a>
+                    <a href="admin.html">پنل مدیریت</a>
+                </div>
+                <div class="copyright">
+                    <p>© ۲۰۲۴ Game Run. تمامی حقوق محفوظ است.</p>
+                    <p class="admin-note">
+                        <i class="fas fa-shield-alt"></i> سیستم مدیریت محرمانه
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- اسکریپت‌ها -->
+    <script src="script.js"></script>
+</body>
+</html>
