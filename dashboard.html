@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پنل مدیریت - Game Run</title>
+    <link rel="stylesheet" href="admin-style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3612/3612569.png">
+</head>
+<body class="admin-dashboard">
+    <!-- نوار مدیریت -->
+    <header class="admin-header">
+        <div class="container">
+            <nav class="admin-navbar">
+                <div class="admin-logo">
+                    <i class="fas fa-user-shield"></i>
+                    <div>
+                        <h1>پنل مدیریت Game Run</h1>
+                        <p class="user-info">مدیر سیستم: <span id="adminName">شما</span></p>
+                    </div>
+                </div>
+                
+                <div class="admin-actions">
+                    <button class="btn-secondary" id="refreshBtn">
+                        <i class="fas fa-redo"></i> بروزرسانی
+                    </button>
+                    <a href="index.html" class="btn-secondary">
+                        <i class="fas fa-globe"></i> مشاهده سایت
+                    </a>
+                    <button class="btn-danger" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i> خروج
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- محتوای اصلی -->
+    <main class="admin-main">
+        <div class="container">
+            <!-- آمار سریع -->
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalGamesAdmin">0</h3>
+                        <p>بازی‌ها</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalDownloadsAdmin">0</h3>
+                        <p>کل دانلودها</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalViews">0</h3>
+                        <p>بازدیدها</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- فرم افزودن بازی جدید -->
+            <section class="add-game-section">
+                <h2><i class="fas fa-plus-circle"></i> افزودن بازی جدید</h2>
+                <form id="addGameForm" class="game-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="gameTitle"><i class="fas fa-heading"></i> عنوان بازی:</label>
+                            <input type="text" id="gameTitle" placeholder="مثال: GTA 6" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gameSize"><i class="fas fa-weight"></i> حجم بازی (GB):</label>
+                            <input type="number" id="gameSize" step="0.1" placeholder="مثال: 25.5" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gameDescription"><i class="fas fa-align-left"></i> توضیحات بازی:</label>
+                        <textarea id="gameDescription" rows="4" placeholder="توضیحات کامل درباره بازی..." required></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="gameImage"><i class="fas fa-image"></i> لینک تصویر بازی:</label>
+                            <input type="url" id="gameImage" placeholder="https://example.com/image.jpg" required>
+                            <small>از سایت‌هایی مثل Imgur یا Postimages می‌توانید آپلود کنید</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="gameFile"><i class="fas fa-download"></i> لینک دانلود بازی:</label>
+                            <input type="url" id="gameFile" placeholder="https://example.com/game.zip" required>
+                            <small>از سایت‌هایی مثل Google Drive یا Mediafire استفاده کنید</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gameCategory"><i class="fas fa-tags"></i> دسته‌بندی:</label>
+                        <select id="gameCategory">
+                            <option value="action">اکشن</option>
+                            <option value="adventure">ماجراجویی</option>
+                            <option value="sports">ورزشی</option>
+                            <option value="strategy">استراتژی</option>
+                            <option value="racing">مسابقه‌ای</option>
+                            <option value="rpg">نقش‌آفرینی</option>
+                        </select>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-success">
+                            <i class="fas fa-save"></i> ذخیره بازی
+                        </button>
+                        <button type="reset" class="btn-secondary">
+                            <i class="fas fa-times"></i> پاک کردن فرم
+                        </button>
+                    </div>
+
+                    <div class="form-alert" id="formAlert">
+                        <!-- پیغام‌های فرم -->
+                    </div>
+                </form>
+            </section>
+
+            <!-- لیست بازی‌های موجود -->
+            <section class="games-list-section">
+                <h2><i class="fas fa-list"></i> بازی‌های موجود (ویرایش/حذف)</h2>
+                <div class="games-list" id="adminGamesList">
+                    <!-- بازی‌ها اینجا نمایش داده می‌شوند -->
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i> در حال بارگذاری...
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- فوتر مدیریت -->
+    <footer class="admin-footer">
+        <div class="container">
+            <p><i class="fas fa-shield-alt"></i> دسترسی مدیریتی - فقط برای مدیر سایت</p>
+            <p>آخرین ورود: <span id="lastLogin">--</span> | تعداد ویرایش: <span id="editCount">0</span></p>
+        </div>
+    </footer>
+
+    <!-- اسکریپت مدیریت -->
+    <script src="admin.js"></script>
+</body>
+</html>
