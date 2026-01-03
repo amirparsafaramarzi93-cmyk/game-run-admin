@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://amirparsafaramarzi93.github.io/game-run-admin/sitemap.xml
+
+# Disallow nothing - allow all
